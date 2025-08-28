@@ -19,7 +19,7 @@ def dists_td(xs: np.ndarray) -> np.ndarray:
         d_mat = cdist(xs_d, xs_d)
         d_mat = np.minimum(d_mat, 1 - d_mat)
         d_dists.append(d_mat)
-    dists = np.sqrt(np.array(d_dists).sum(axis=0))
+    dists = np.sqrt((np.array(d_dists) ** 2).sum(axis=0))
     return dists
 
 def pdists_td(xs: np.ndarray) -> np.ndarray:
@@ -35,5 +35,5 @@ def pdists_td(xs: np.ndarray) -> np.ndarray:
         ds = pdist(xs_d)
         ds = np.minimum(ds, 1 - ds)
         d_dists.append(ds)
-    dists = np.sqrt(np.array(d_dists).sum(axis=0))
+    dists = np.sqrt((np.array(d_dists) ** 2).sum(axis=0))
     return dists
